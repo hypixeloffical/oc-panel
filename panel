@@ -1,4 +1,4 @@
-local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/Public-Resources/main/MacLib/maclib.lua"))()
+local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/Public-Resources/main/MacLib/maclib.txt"))()
 local Whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/hypixeloffical/oc-panel/refs/heads/main/whitelist"))()
 
 if loadstring("return 5")() ~= 5 then
@@ -94,11 +94,13 @@ Mouse.Button1Down:Connect(function()
 
     if table.find(Selected, Target) then
         table.remove(Selected, table.find(Selected, Target))
+        print(Target.Name .. " Deselected")
         Target:FindFirstChild("Selected"):Destroy()
     else
         table.insert(Selected, Target)
         local Highlight = Instance.new("Highlight")
         Highlight.Name = "Selected"
+        print(Target.Name .. " Selected")
         Highlight.Parent = Target
         Highlight.Adornee = Target
         Highlight.FillTransparency = 0.7
